@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "components/head.html" %}
+</head>
+
+<body>
+    {% include "components/navbar.html" %}
+        <div id="sidebar">
+        {% block sidebar %}
+        {% endblock %}
+        </div>
+
+        {% block content %}
+            <h>This is content Block from base file </h>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/polls/first/">first</a></li>
+                <li><a href="/polls/second/">second</a></li>
+                <li><a href="/polls/third/">third</a></li>
+                <li><a href="/polls/fourth/">fourth</a></li>
+                <li><a href="/polls/fifth/">fifth</a></li>
+                </ul>        
+        {% endblock %}
+        <div class="container">
+        {% block footer %}
+            {% include "components/footer.html" %}
+        {% endblock %}
+        </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "components/base.html" %}
+
+{% block content %}
+
+<h5>Title       : {{ task.title }}</h5>
+<p>Description  : {{ task.description }}</p>
+<p>created_date : {{ task.created_date }}</p>
+<p>due_date     : {{ task.due_date }}</p>
+<p>completed    : {{ task.completed }}</p>
+<p>note         : {{ task.note }}</p>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<a href="/todo/edit/{{ task.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+
+{% endblock %}

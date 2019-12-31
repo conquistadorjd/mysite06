@@ -1,0 +1,36 @@
+{% extends "components/base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+{% if context %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Completed Date</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in context %}
+        <tr>
+            <td><li><a href="{% url 'todo:detail' task.id %}">{{ task.title }}</a></li></td>
+            <td>{{ task.created_date }}</td>
+            <td>{{ task.completed }}</td>
+            <td>{{ task.completed_date }}</td>
+            <td>  
+                <a href="/todo/edit/{{ task.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+                <a href="/todo/delete/{{ task.id }}">Delete</a>  
+            </td> 
+        </tr>  
+        {% endfor %}
+    </tbody>
+    </table>
+{% else %}
+    <p>No tasks are available.</p>
+{% endif %}
+<center><a href="/todo/newtask" class="btn btn-primary">Add New Record</a></center>  
+</div>
+{% endblock %}
